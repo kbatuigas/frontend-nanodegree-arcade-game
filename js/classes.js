@@ -66,6 +66,11 @@ class Player extends Entity {
             alert("You won");
         }
     }
+
+    render() {
+        super.render();
+        this.moving = false;
+    }
 }
 
 class Enemy extends Entity {
