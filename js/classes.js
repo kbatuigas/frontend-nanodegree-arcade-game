@@ -8,6 +8,11 @@ class Entity {
 
     }
 
+    update(dt) {
+        this.outOfBoundsX = this.x > 5;
+        this.outOfBoundsY = this.y < 1;
+    }
+
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
     }
