@@ -23,6 +23,26 @@ class Player extends Entity {
         super();
         this.sprite += 'char-horn-girl.png';
     }
+
+    handleInput(input) {
+        switch(input) {
+            case 'left':    //if player at x starting point (0), do not move left
+                this.x = this.x > 0 ? this.x - 1 : this.x;  //increment/decrement of 1 works with "block" movement
+                break;
+            case 'up':
+                this.y = this.y > 0 ? this.y - 1 : this.y;
+                break;
+            case 'right':   //if player is at last x block, do not move right
+                this.x = this.x < 4 ? this.x + 1 : this.x;
+                break;
+            case 'down':
+                this.y = this.y < 5 ? this.y + 1 : this.y;
+                break;
+            default:    //for any other keypress
+                break;
+
+        }
+    }
 }
 
 class Enemy extends Entity {
