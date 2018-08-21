@@ -28,7 +28,7 @@ class Player extends Entity {
 class Enemy extends Entity {
     constructor(x, y) {
         super();
-        this.x = x;
+        this.x = x; //These can be modified so that enemy entities start at different places
         this.y = y;
         this.sprite += 'enemy-bug.png';
     }
@@ -38,7 +38,7 @@ class Enemy extends Entity {
         if(this.outOfBoundsX) {
             this.x = -1;    //makes Enemy look like it "starts" off-canvas
         } else {
-            this.x += dt;
+            this.x += dt;   //This can be modified so that different enemies move at different paces
         }
     }
 }
