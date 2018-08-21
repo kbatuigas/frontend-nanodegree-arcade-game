@@ -32,4 +32,13 @@ class Enemy extends Entity {
         this.y = y;
         this.sprite += 'enemy-bug.png';
     }
+
+    update(dt) {
+        super.update();
+        if(this.outOfBoundsX) {
+            this.x = -1;    //makes Enemy look like it "starts" off-canvas
+        } else {
+            this.x += dt;
+        }
+    }
 }
