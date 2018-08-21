@@ -82,6 +82,14 @@ var Engine = (function(global) {
         checkCollisions();
     }
     
+    function checkCollisions() {
+        allEnemies.forEach(enemy => {
+            if (enemy.checkCollide(player) || player.checkCollide(enemy)) {
+                player.y = 5;   //put player back in starting position
+                player.x = 2;
+            }
+        })
+    }
 
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
