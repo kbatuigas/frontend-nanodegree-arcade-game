@@ -3,7 +3,7 @@
 class Entity {
     constructor() {
         this.sprite = 'images/';
-        this.x = 2;
+        this.x = 2; //these coordinates correspond with bottom center of canvas
         this.y = 5;
 
     }
@@ -15,6 +15,17 @@ class Entity {
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+    }
+
+    checkCollide(gameEntity) {
+        if (this.y === gameEntity.y) {
+            if (this.x >= gameEntity.x - 0.7 && this.x <= gameEntity.x + 0.7) {
+                return true;    //"collision" set to within 0.7 blocks of player/enemy
+            }
+        } else {    //player and enemy have to be on same y position to "collide"
+            return false;
+        }
+
     }
 };
 
