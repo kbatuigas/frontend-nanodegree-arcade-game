@@ -1,3 +1,4 @@
+/*
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -30,7 +31,11 @@ Enemy.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+*/
 
+const player = new Player();
+
+const allEnemies = [...Array(3)].map((_,i) => new Enemy(0, i+1));
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
