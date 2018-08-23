@@ -92,7 +92,7 @@ class Enemy extends Entity {
         if(this.outOfBoundsX) {
             this.x = -1;    //makes Enemy look like it "starts" off-canvas
         } else {
-            this.x += dt;   //This can be modified so that different enemies move at different paces
+            this.x += (Math.floor(Math.random() * 4) * dt);   //This can be modified so that different enemies move at different paces
         }
     }
 }
