@@ -1,6 +1,18 @@
-frontend-nanodegree-arcade-game
+Simple Arcade Game Clone
 ===============================
+A project for the Grow with Google / Udacity Front-End Web Development Nanodegree program.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Play the game here: [https://kbatuigas.github.io/frontend-nanodegree-arcade-game/](https://kbatuigas.github.io/frontend-nanodegree-arcade-game/)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+This game is inspired by the classic arcade game Frogger. The objective is to move the player around the canvas and reach the water without colliding with enemy bugs.
+
+Use the keyboard arrow keys to move your player up, down, left, and right.
+
+Collision with an enemy bug will put the player back in starting position.
+
+When the player has won, an option to replay the game will appear.
+
+## Credits
+* Udacity for the [starter code](https://github.com/udacity/frontend-nanodegree-arcade-game)
+* Matthew Cranford for guidance on game reset - check out the [blog post](https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/)
+* Rodrick Bloomfield's [Getting Started video](https://zoom.us/recording/play/aulotDlzKFegQFIJTaTzKgWvNkVsYtlwO454vL1UPE1Cm6lOUBQCtfVurPOIAGAS?startTime=1529542978000) for Grow with Google FEND.
