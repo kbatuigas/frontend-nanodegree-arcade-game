@@ -22,7 +22,8 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        animationId;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -51,11 +52,10 @@ var Engine = (function(global) {
          * for the next time this function is called.
          */
         lastTime = now;
-
-        /* Use the browser's requestAnimationFrame function to call this
-         * function again as soon as the browser is able to draw another frame.
-         */
-        win.requestAnimationFrame(main);
+        
+        // Call gamestop function to refresh/cancel animation accordingly
+        gameStop();
+        
     }
 
     /* This function does some initial setup that should only occur once,
@@ -80,6 +80,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
+        
     }
     
     function checkCollisions() {
@@ -103,6 +104,23 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+    }
+
+    /* This function uses the browser's requestAnimationFrame function to 
+    * call main function again as soon as the browser is able to draw another frame.
+    * requestAnimationFrame returns an ID which can be passed into
+    * cancelAnimationFrame (in if condition above to cancel the "redraw" 
+    * -- here, we want this to happen when the player wins
+    */
+    function gameStop() {
+        if (player.win) {
+            win.cancelAnimationFrame(animationId);
+        }
+        else {
+            animationId = win.requestAnimationFrame(main);
+        }
+        return;           
+
     }
 
     /* This function initially draws the "game level", it will then call
@@ -171,6 +189,7 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        
     }
 
     /* Go ahead and load all of the images we know we're going to need to

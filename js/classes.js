@@ -63,7 +63,7 @@ class Player extends Entity {
         super.update();
         if (this.outOfBoundsY && !this.moving && !this.win) {   //player wins if it reaches water, is not "in movement", and is not "in win"
             this.win = true;
-            alert("You won");
+            //alert("You won");
         }
     }
 
