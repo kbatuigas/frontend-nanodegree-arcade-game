@@ -33,6 +33,8 @@ class Player extends Entity {
     constructor() {
         super();
         this.sprite += 'char-horn-girl.png';
+        this.moving = false;
+        this.win = false;
     }
 
     handleInput(input) {
@@ -53,6 +55,27 @@ class Player extends Entity {
                 break;
 
         }
+
+        this.moving = true;
+    }
+
+    update(dt) {
+        super.update();
+        if (this.outOfBoundsY && !this.moving && !this.win) {   /*player wins if it reaches water, is 
+                                                                not "in movement", and is not "in win"*/
+            this.win = true;
+            //alert("You won");
+        }
+    }
+
+    render() {
+        super.render();
+        this.moving = false;
+    }
+
+    reset() {   //put player back in starting position
+        this.x = 2;
+        this.y = 5;
     }
 }
 
