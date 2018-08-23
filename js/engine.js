@@ -86,8 +86,7 @@ var Engine = (function(global) {
     function checkCollisions() {
         allEnemies.forEach(enemy => {
             if (enemy.checkCollide(player) || player.checkCollide(enemy)) {
-                player.y = 5;   //put player back in starting position
-                player.x = 2;
+                player.reset();
             }
         })
     }
