@@ -25,6 +25,10 @@ var Engine = (function(global) {
         lastTime,
         animationId;
 
+    //const modal = document.getElementById(modal);
+    const closeModal = document.querySelector('.modal-close');
+    const replayButton = document.querySelector('.modal-replay');
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -114,6 +118,7 @@ var Engine = (function(global) {
     function gameStop() {
         if (player.win) {
             win.cancelAnimationFrame(animationId);
+            toggleModal();
         }
         else {
             animationId = win.requestAnimationFrame(main);
@@ -190,6 +195,25 @@ var Engine = (function(global) {
         // noop
         
     }
+
+    // Called when player wins, displays modal with replay option
+    function toggleModal() {
+        const modal = document.getElementById('openModal');
+        modal.classList.toggle('hide');
+    }
+
+    closeModal.addEventListener('click', function() {
+        toggleModal();
+    }
+    )
+
+    replayButton.addEventListener('click', function() {
+            toggleModal();
+            player.reset();
+            player.win = false;
+            init();
+            win.requestAnimationFrame(main);
+    });
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
